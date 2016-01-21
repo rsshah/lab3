@@ -9,10 +9,15 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	$("#testjs").click(function(e) {
-		$('.jumbotron h1').text("Javascript is connected");
-	});
+  $("#submitBtn").click(updateProject);
+} 
 
-	// Add any additional listeners here
-	// example: $("#div-id").click(functionToCall);
+function updateProject(e) {
+   var projectID = $('#project').val();
+   $(projectID).animate({
+      width: $('#width').val()
+   });
+
+   var newText = $('#description').val();
+   $(projectID + " .project-description").text(newText);
 }
